@@ -14,6 +14,7 @@
             ]
         }
     ],
+    "pr_template": "- ${{TITLE}} (#${{NUMBER}})",
     "label_extractor": [
         {
             "pattern": "(.): (.+)",
