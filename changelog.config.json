@@ -14,7 +14,13 @@
             ]
         }
     ],
-    "pr_template": "- ${{TITLE}} (#${{NUMBER}})",
+    "pr_template": "${{TITLE}} (#${{NUMBER}})",
+    "transformers": [
+        {
+            "pattern": "/([^:]*): (.*)/gm",
+            "target": "- $2"
+        }
+    ],
     "label_extractor": [
         {
             "pattern": "(.): (.+)",
