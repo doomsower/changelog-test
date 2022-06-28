@@ -8,7 +8,7 @@ on:
       - synchronize
 
 jobs:
-  lintpr:
+  linter:
     name: Validate PR
     runs-on: ubuntu-latest
     steps:
