@@ -18,7 +18,8 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           skip-commit: "true"
-          fallback-version: "1.55.0"
+          output-file: "false"
+          fallback-version: "1.56.0"
 
       - name: Build Changelog
         id: changelog
@@ -32,4 +33,5 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v0.1.14
         with:
+          tag_name: ${{ steps.bump_tag.outputs.tag }}
           body: ${{steps.changelog.outputs.changelog}}
