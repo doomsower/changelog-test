@@ -1,0 +1,20 @@
+{
+    "categories": [
+        {
+            "title": "## 🚀 Фичи",
+            "labels": [
+                "feat",
+                "feature"
+            ]
+        },
+        {
+            "title": "## 🐛 Багфиксы",
+            "labels": [
+                "fix"
+            ]
+        }
+    ],
+    "base_branches": [
+        "development"
+    ]
+}
