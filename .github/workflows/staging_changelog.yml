@@ -1,11 +1,12 @@
-name: 'changelog'
+name: 'Staging changelog'
+
 on:
   push:
     branches:
       - staging
 
 jobs:
-  release:
+  changelog:
     # if: startsWith(github.event.head_commit.message, 'Merge branch')
     runs-on: ubuntu-latest
     steps:
