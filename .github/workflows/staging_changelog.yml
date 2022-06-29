@@ -27,7 +27,7 @@ jobs:
         uses: mikepenz/release-changelog-builder-action@v3
         if: ${{ steps.bump_tag.outputs.skipped == 'false' }}
         with:
-          configuration: "changelog.config.json"
+          configuration: "./github/workflows/changelog.config.json"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
