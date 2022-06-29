@@ -37,10 +37,11 @@ jobs:
           tag_name: ${{ steps.bump_tag.outputs.tag }}
           body: ${{steps.changelog.outputs.changelog}}
       
-
       - name: Label PRs'
         uses: ./actions/label_prs
         id: label_prs
         with:
           label: 'Foobar'
           prs: ${{steps.changelog.outputs.pull_requests}}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
