@@ -1,6 +1,5 @@
 {
     "compilerOptions": {
-        "noEmit": false,
         "target": "es2019",
         "module": "commonjs",
         "moduleResolution": "node",
@@ -8,18 +7,12 @@
             "DOM",
             "esnext"
         ],
-        "declaration": true,
+        "declaration": false,
         "strict": true,
-        "strictFunctionTypes": false,
-        "sourceMap": true,
         "skipLibCheck": true,
         "allowSyntheticDefaultImports": true,
+        "useUnknownInCatchVariables": false,
         "esModuleInterop": true,
         "importHelpers": true,
-        "jsx": "react",
-        "resolveJsonModule": true,
-        "noFallthroughCasesInSwitch": true,
-        "useUnknownInCatchVariables": false,
-        "removeComments": false
     }
 }

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "esbuild index.ts --platform=node --bundle --outfile=dist/index.js"
+    "clean": "rm -rf dist",
+    "build": "ncc build index.ts"
   },
   "author": "",
   "license": "ISC",
@@ -13,7 +14,7 @@
     "@actions/github": "^5.0.3"
   },
   "devDependencies": {
-    "esbuild": "^0.14.47",
+    "@vercel/ncc": "^0.34.0",
     "tslib": "^2.4.0",
     "typescript": "^4.7.4"
   }
