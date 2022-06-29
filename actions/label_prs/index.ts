@@ -1,15 +1,33 @@
 import * as core from "@actions/core";
 import * as github from "@actions/github";
 
-try {
-  // `who-to-greet` input defined in action metadata file
-  const label = core.getInput("label");
-  const prs = core.getInput("prs");
-  console.log(`Label: "${label}"`);
-  console.log(`PRs: "${prs}"`);
-  // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2);
-  console.log(`The event payload: ${payload}`);
-} catch (error) {
-  core.setFailed(error.message);
+async function run(): Promise<void> {
+  try {
+    const octokit = github.getOctokit(process.env.GITHUB_TOKEN!);
+
+    const label = core.getInput("label");
+    const prsStr = core.getInput("prs");
+    console.info(`Label: "${label}"`);
+    console.info(`PRs: "${prsStr}"`);
+
+    const prs = prsStr.split(",");
+    if (prsStr.length === 0 || prs.length === 0) {
+      console.info("no PRs found");
+      return;
+    }
+
+    await Promise.all(
+      prs.map((pr) => {
+        octokit.rest.issues.addLabels({
+          ...github.context.repo,
+          issue_number: parseInt(pr),
+          labels: [label],
+        });
+      })
+    );
+  } catch (error) {
+    core.setFailed(error.message);
+  }
 }
+
+run();
