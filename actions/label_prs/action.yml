@@ -1,0 +1,12 @@
+name: 'Label PRs'
+description: 'Adds label to multiple PRs'
+inputs:
+  label:
+    description: 'Label to add'
+    required: true
+  prs:
+    description: 'Comma-separated array of PR'
+    required: true
+runs:
+  using: 'node16'
+  main: 'index.js'
